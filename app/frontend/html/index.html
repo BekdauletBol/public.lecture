@@ -1,0 +1,70 @@
+<!-- Главная HTML страница приложения -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>public.edu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/app/frontend/css/styles.css">
+</head>
+<body class="text-[#a1a1a1]">
+
+    <nav class="navbar border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="logo-area" onclick="showPage('home')">
+                <span class="text-white font-medium tracking-tighter">public.edu</span>
+            </div>
+            
+            <div class="flex items-center space-x-8 text-sm">
+                <a href="#" class="hover:text-white transition">Lectures</a>
+                <a href="#" class="hover:text-white transition">Teachers</a>
+                <a href="#" class="hover:text-white transition">Pricing</a>
+                <button onclick="showPage('upload')" class="upload-btn">
+                    <span>Upload</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-16">
+        
+        <section id="home-page" class="fade-in">
+            <div class="text-center mb-16">
+                <h1 class="text-white text-5xl font-medium tracking-tighter mb-4">video lectures for the future</h1>
+                <p class="text-gray-500 max-w-xl mx-auto text-lg">A platform with open context for training neural networks and humans. No extra noise.</p>
+            </div>
+
+            <div id="video-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            </div>
+        </section>
+
+        <section id="upload-page" class="hidden max-w-2xl mx-auto fade-in">
+            <div class="form-container border border-white/10 bg-[#111] p-10 rounded-xl">
+                <h2 class="text-white text-2xl mb-8 tracking-tight">add new context</h2>
+
+                <form id="upload-form" class="space-y-6">
+                    <input type="text" id="title" placeholder="Lecture title" class="tech-input" required>
+                    <select id="category" class="tech-input">
+                        <option value="Programming">Programming</option>
+                        <option value="Design">Design</option>
+                        <option value="Marketing">Marketing</option>
+                    </select>
+                     <div class="drop-zone border border-dashed border-white/10" id="dropZone">
+                         <p id="fileNameDisplay">Drag and drop video file here</p>
+                          <input type="file" id="videoFile" hidden accept="video/*">
+                        </div>
+                        <div class="flex space-x-4">
+                             <button type="submit" class="primary-btn">Publish</button>
+                             <button type="button" onclick="showPage('home')" class="secondary-btn">Cancel</button>
+                            </div>
+                        </form>
+                     </div>
+                     </section>
+                     </main>
+                     <script src="/app/frontend/js/main.js"></script>
+                    </body>
+                    </html>

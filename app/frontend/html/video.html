@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Lecture | EduStream</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#0a0a0a] text-[#a1a1a1]">
+
+    <nav class="navbar border-b border-white/5">
+        <div class="container mx-auto px-6 py-4">
+            <a href="index.html" class="text-white font-medium tracking-tighter">edustream.ai</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-12">
+        <div class="max-w-4xl mx-auto">
+            <div class="aspect-video bg-black rounded-xl border border-white/10 overflow-hidden mb-8">
+                <video id="mainPlayer" controls class="w-full h-full">
+                    <source src="assets/sample-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="fade-in">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h1 class="text-white text-3xl font-medium tracking-tight mb-2">Introduction to Neural Networks</h1>
+                        <p class="text-gray-500">Uploaded by <span class="text-white">admin</span> • 2 days ago</p>
+                    </div>
+                    <span class="border border-white/10 px-3 py-1 rounded text-xs uppercase tracking-widest">AI / ML</span>
+                </div>
+                
+                <div class="border-t border-white/5 pt-6 text-gray-400 leading-relaxed">
+                    This lecture covers the fundamental concepts of neural networks, including backpropagation and activation functions.
+                </div>
+            </div>
+        </div>
+    </main>
+<script> 
+    const params = new URLSearchParams(window.location.search);
+    const videoUrl = params.get('url');
+    const videoTitle = params.get('title');
+
+    if (videoUrl) {
+        document.getElementById('mainPlayer').src = `http://127.0.0.1:5001/${videoUrl}`;
+        document.querySelector('h1').innerText = videoTitle;
+    }
+</script>
+</body>
+</html>
