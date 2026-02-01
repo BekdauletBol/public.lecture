@@ -13,25 +13,29 @@
 </head>
 <body class="text-[#a1a1a1]">
 
-    <nav class="navbar border-b border-white/5">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="logo-area" onclick="showPage('home')">
-                <span class="text-white font-medium tracking-tighter">public.edu</span>
-            </div>
+<nav class="navbar border-b border-white/5">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="logo-area cursor-pointer" onclick="showPage('home')">
+            <span class="text-white font-medium tracking-tighter">public.edu</span>
+        </div>
+        
+        <div class="flex items-center space-x-8 text-sm">
+            <a href="#" class="hover:text-white transition">Lectures</a>
+            <a href="#" class="hover:text-white transition">Teachers</a>
+            <a href="#" class="hover:text-white transition">Pricing</a>
+        </div>
+
+        <div id="auth-buttons" class="flex items-center space-x-8">
+            <button id="upload-nav-btn" onclick="showPage('upload')" class="upload-btn" style="display: none;">
+                <span>Upload</span>
+            </button>
             
-            <div class="flex items-center space-x-8 text-sm">
-                <a href="#" class="hover:text-white transition">Lectures</a>
-                <a href="#" class="hover:text-white transition">Teachers</a>
-                <a href="#" class="hover:text-white transition">Pricing</a>
-            </div>
-            <div id="auth-buttons" class="flex items-center space-x-8">
-                <button onclick="showPage('upload')" class="upload-btn">
-                    <span>Upload</span>
-                </button>
-                <a href="login.html" class="hover:text-white transition">Sign In</a>
+            <div id="user-controls">
+                <a href="login.html" class="hover:text-white transition text-sm">Sign In</a>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <main class="container mx-auto px-6 py-16">
         
@@ -49,25 +53,33 @@
             <div class="form-container border border-white/10 bg-[#111] p-10 rounded-xl">
                 <h2 class="text-white text-2xl mb-8 tracking-tight">add new context</h2>
 
-                <form id="upload-form" class="space-y-6">
-                    <input type="text" id="title" placeholder="Lecture title" class="tech-input" required>
-                    <select id="category" class="tech-input">
-                        <option value="Programming">Programming</option>
-                        <option value="Design">Design</option>
-                        <option value="Marketing">Marketing</option>
-                    </select>
-                     <div class="drop-zone border border-dashed border-white/10" id="dropZone">
-                         <p id="fileNameDisplay">Drag and drop video file here</p>
-                          <input type="file" id="videoFile" hidden accept="video/*">
+                    <form id="upload-form" class="space-y-6">
+                        <input type="text" id="title" placeholder="Lecture title" class="tech-input" required>
+                        
+                        <select id="category" class="tech-input">
+                            <option value="Programming">Programming</option>
+                            <option value="Design">Design</option>
+                            <option value="Marketing">Marketing</option>
+                        </select>
+
+                        <div class="form-group">
+                            <label class="text-[10px] uppercase tracking-widest text-gray-500 mb-2 block">Thumbnail (Image)</label>
+                            <input type="file" id="thumbnailFile" accept="image/*" class="tech-input text-xs">
                         </div>
+
+                        <div class="drop-zone border border-dashed border-white/10" id="dropZone">
+                            <p id="fileNameDisplay">Drag and drop video file here</p>
+                            <input type="file" id="videoFile" hidden accept="video/*">
+                        </div>
+
                         <div class="flex space-x-4">
-                             <button type="submit" class="primary-btn">Publish</button>
-                             <button type="button" onclick="showPage('home')" class="secondary-btn">Cancel</button>
-                            </div>
-                        </form>
+                            <button type="submit" class="primary-btn">Publish</button>
+                            <button type="button" onclick="showPage('home')" class="secondary-btn">Cancel</button>
+                        </div>
+                    </form>
                      </div>
-                     </section>
-                     </main>
-                     <script src="/app/frontend/js/main.js"></script>
-                    </body>
-                    </html>
+                </section>
+            </main>
+        <script src="/app/frontend/js/main.js"></script>
+    </body>
+</html>
