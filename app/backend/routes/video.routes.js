@@ -42,7 +42,7 @@ router.post('/upload', auth, checkRole('teacher'), uploadFields, async (req, res
     }
 });
 
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
     try {
         const videos = await Video.find().populate('teacher', 'username');
         res.json(videos);
