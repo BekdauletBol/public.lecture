@@ -40,3 +40,7 @@ git clone https://github.com/your-username/public.lecture.git
 cd public.lecture
 
 npm install express mongoose dotenv cors multer bcryptjs jsonwebtoken
+
+## 🔗 Live Demo
+- **Website URL:** [https://lovely-clafoutis-06a82b.netlify.app](https://lovely-clafoutis-06a82b.netlify.app)
+- **Backend API URL:** [https://public-edu.onrender.com](https://public-edu.onrender.com)
