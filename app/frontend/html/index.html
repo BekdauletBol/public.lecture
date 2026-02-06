@@ -1,5 +1,3 @@
-<!-- Главная HTML страница приложения -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/app/frontend/css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body class="text-[#a1a1a1]">
+<body class="bg-[#0a0a0a] text-[#a1a1a1]">
 
 <nav class="navbar border-b border-white/5">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -20,16 +18,16 @@
         </div>
         
         <div class="flex items-center space-x-8 text-sm">
-            <a href="#" class="hover:text-white transition">Lectures</a>
-            <a href="#" class="hover:text-white transition">Teachers</a>
-            <a href="#" class="hover:text-white transition">Pricing</a>
+            <a href="index.html" class="text-white">Home</a>
+            <a href="lectures.html" class="hover:text-white transition">Lectures</a>
+            <a href="teachers.html" class="hover:text-white transition">Teachers</a>
         </div>
 
         <div id="auth-buttons" class="flex items-center space-x-8">
+            <a href="#" id="profile-link" class="text-[10px] uppercase tracking-widest hover:text-white hidden transition" onclick="showPage('profile')">Profile</a>
             <button id="upload-nav-btn" onclick="showPage('upload')" class="upload-btn" style="display: none;">
                 <span>Upload</span>
             </button>
-            
             <div id="user-controls">
                 <a href="login.html" class="hover:text-white transition text-sm">Sign In</a>
             </div>
@@ -37,49 +35,69 @@
     </div>
 </nav>
 
-    <main class="container mx-auto px-6 py-16">
-        
-        <section id="home-page" class="fade-in">
-            <div class="text-center mb-16">
-                <h1 class="text-white text-5xl font-medium tracking-tighter mb-4">video lectures for the future</h1>
-                <p class="text-gray-500 max-w-xl mx-auto text-lg">A platform with open context for training neural networks and humans. No extra noise.</p>
+<main class="container mx-auto px-6 py-16">
+    
+    <!-- ПРИВЕТСТВИЕ (HELLO VIEW) -->
+    <section id="home-page" class="py-20 text-center fade-in">
+        <h1 class="text-white text-7xl font-medium tracking-tighter mb-6">video lectures<br>for the future</h1>
+        <p class="text-gray-500 max-w-2xl mx-auto text-xl mb-12 leading-relaxed">
+            A platform with open context for training neural networks and humans. 
+            Join the community to access the library.
+        </p>
+        <div class="flex justify-center space-x-4">
+            <button onclick="window.location.href='lectures.html'" class="primary-btn px-10 py-4">Browse Library</button>
+            <button onclick="window.location.href='register.html'" class="secondary-btn px-10 py-4">Get Started</button>
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ ЗАГРУЗКИ (SPA) -->
+    <section id="upload-page" class="hidden max-w-2xl mx-auto fade-in">
+        <div class="form-container border border-white/10 bg-[#111] p-10 rounded-xl">
+            <h2 class="text-white text-2xl mb-8 tracking-tight text-center uppercase">add new context</h2>
+            <form id="upload-form" class="space-y-6">
+                <input type="text" id="title" placeholder="Lecture title" class="tech-input" required>
+                <select id="category" class="tech-input">
+                    <option value="Programming">Programming</option>
+                    <option value="Design">Design</option>
+                    <option value="Marketing">Marketing</option>
+                </select>
+                <div class="form-group">
+                    <label class="text-[10px] uppercase tracking-widest text-gray-500 mb-2 block">Thumbnail</label>
+                    <input type="file" id="thumbnailFile" accept="image/*" class="tech-input text-xs">
+                </div>
+                <div class="drop-zone border border-dashed border-white/10" id="dropZone">
+                    <p id="fileNameDisplay">Drag and drop video file</p>
+                    <input type="file" id="videoFile" hidden accept="video/*">
+                </div>
+                <div class="flex space-x-4">
+                    <button type="submit" class="primary-btn flex-1">Publish</button>
+                    <button type="button" onclick="showPage('home')" class="secondary-btn flex-1">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ПРОФИЛЬ (SPA) -->
+    <section id="profile-page" class="hidden max-w-md mx-auto fade-in">
+        <div class="border border-white/10 bg-[#111] p-10 rounded-xl text-center">
+            <h2 class="text-white text-xl mb-8 tracking-[0.2em] uppercase font-light">Your Profile</h2>
+            <div id="profile-avatar-display" class="w-24 h-24 bg-white/5 rounded-full mx-auto mb-8 border border-white/10 overflow-hidden flex items-center justify-center">
+                <i class="fas fa-user text-2xl text-white/10"></i>
             </div>
+            
+            <form id="profile-form" class="space-y-6 text-left mb-10">
+                <input type="file" id="avatarFile" accept="image/*" class="tech-input text-[10px]">
+                <button type="submit" class="primary-btn w-full">Update Avatar</button>
+            </form>
 
-            <div id="video-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="border-t border-white/5 pt-8 text-left">
+                <h3 class="text-white text-[10px] uppercase tracking-[0.2em] mb-6">My Studio</h3>
+                <div id="my-videos-list" class="space-y-3"></div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="upload-page" class="hidden max-w-2xl mx-auto fade-in">
-            <div class="form-container border border-white/10 bg-[#111] p-10 rounded-xl">
-                <h2 class="text-white text-2xl mb-8 tracking-tight">add new context</h2>
-
-                    <form id="upload-form" class="space-y-6">
-                        <input type="text" id="title" placeholder="Lecture title" class="tech-input" required>
-                        
-                        <select id="category" class="tech-input">
-                            <option value="Programming">Programming</option>
-                            <option value="Design">Design</option>
-                            <option value="Marketing">Marketing</option>
-                        </select>
-
-                        <div class="form-group">
-                            <label class="text-[10px] uppercase tracking-widest text-gray-500 mb-2 block">Thumbnail (Image)</label>
-                            <input type="file" id="thumbnailFile" accept="image/*" class="tech-input text-xs">
-                        </div>
-
-                        <div class="drop-zone border border-dashed border-white/10" id="dropZone">
-                            <p id="fileNameDisplay">Drag and drop video file here</p>
-                            <input type="file" id="videoFile" hidden accept="video/*">
-                        </div>
-
-                        <div class="flex space-x-4">
-                            <button type="submit" class="primary-btn">Publish</button>
-                            <button type="button" onclick="showPage('home')" class="secondary-btn">Cancel</button>
-                        </div>
-                    </form>
-                     </div>
-                </section>
-            </main>
-        <script src="/app/frontend/js/main.js"></script>
-    </body>
+</main>
+<script src="../js/main.js"></script>
+</body>
 </html>
