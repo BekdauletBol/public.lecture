@@ -39,7 +39,7 @@ router.post('/upload', auth, checkRole('teacher'), uploadFields, async (req, res
             title: req.body.title,
             category: req.body.category,
             description: req.body.description,
-            videoUrl: videoFile.path.replace(/\\/g, "/"),
+            videoUrl: req.files['video'][0].filename, 
             thumbnailUrl: thumbFile ? thumbFile.path.replace(/\\/g, "/") : "" ,
             teacher: req.user.id 
         });
