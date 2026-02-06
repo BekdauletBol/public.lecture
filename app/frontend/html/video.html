@@ -5,50 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Watch Lecture | public.edu</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body class="bg-[#0a0a0a] text-[#a1a1a1]">
 
     <nav class="navbar border-b border-white/5">
-        <div class="container mx-auto px-6 py-4">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="text-white font-medium tracking-tighter">public.edu</a>
+            <a href="lectures.html" class="text-[10px] uppercase tracking-widest text-gray-500 hover:text-white transition">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Lectures
+            </a>
         </div>
     </nav>
 
     <main class="container mx-auto px-6 py-12">
         <div class="max-w-4xl mx-auto">
-            <div class="aspect-video bg-black rounded-xl border border-white/10 overflow-hidden mb-8">
+            <div class="aspect-video bg-black rounded-xl border border-white/10 overflow-hidden mb-8 shadow-2xl shadow-indigo-500/5">
                 <video id="mainPlayer" controls class="w-full h-full">
-                    <source src="assets/sample-video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
             </div>
-
-            <div class="fade-in">
-                <div class="flex justify-between items-start mb-6">
-                    <div>
-                        <h1 class="text-white text-3xl font-medium tracking-tight mb-2">Introduction to Neural Networks</h1>
-                        <p class="text-gray-500">Uploaded by <span class="text-white">admin</span> • 2 days ago</p>
-                    </div>
-                    <span class="border border-white/10 px-3 py-1 rounded text-xs uppercase tracking-widest">AI / ML</span>
-                </div>
+    
+            <div class="fade-in px-4">
+                <h1 id="videoTitle" class="text-white text-3xl font-medium tracking-tight mb-6">Loading Title...</h1>
                 
-                <div class="border-t border-white/5 pt-6 text-gray-400 leading-relaxed">
-                    This lecture covers the fundamental concepts of neural networks, including backpropagation and activation functions.
+                <div class="bg-[#111] p-6 rounded-xl border border-white/5 shadow-inner">
+                    <p class="text-[10px] uppercase tracking-[0.3em] text-white/20 mb-4 font-bold">Context / Description</p>
+                    <p id="videoDescription" class="text-gray-400 text-sm leading-relaxed whitespace-pre-wrap font-light">
+                    </p>
                 </div>
             </div>
         </div>
     </main>
-<script> 
-    const params = new URLSearchParams(window.location.search);
-    const videoUrl = params.get('url');
-    const videoTitle = params.get('title');
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const url = params.get('url');
+            const title = params.get('title');
+            const desc = params.get('desc');
+    
+            if (url) {
+                const player = document.getElementById('mainPlayer');
+                player.src = `http://127.0.0.1:5001/${url}`;
+                
+                if (title) {
+                    document.getElementById('videoTitle').innerText = decodeURIComponent(title);
+                    document.title = `${decodeURIComponent(title)} | public.edu`;
+                }
+                
+                const descEl = document.getElementById('videoDescription');
+                if (desc && desc !== "undefined" && desc !== "null" && desc !== "") {
+                    descEl.innerText = decodeURIComponent(desc);
+                } else {
+                    descEl.innerHTML = '<span class="italic opacity-30">No additional context provided for this lecture.</span>';
+                }
+            } else {
+                window.location.href = 'lectures.html'; 
+            }
+        });
+    </script>
 
-    if (videoUrl) {
-        document.getElementById('mainPlayer').src = `http://127.0.0.1:5001/${videoUrl}`;
-        document.querySelector('h1').innerText = videoTitle;
-    }
-</script>
 </body>
 </html>
