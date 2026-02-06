@@ -4,6 +4,7 @@ const multer = require('multer');
 const Video = require('../models/Video');
 const auth = require('../middlewares/auth.middleware');
 const checkRole = require('../middlewares/checkRole');
+const fs = require('fs');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => cb(null, 'uploads/'),
@@ -49,5 +50,29 @@ router.get('/', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
+router.delete('/:id', auth, async (req, res) => {
+    try {
+        const video = await Video.findById(req.params.id);
+
+        if (!video) return res.status(404).json({ message: "Video not found" });
+
+        if (video.teacher.toString() !== req.user.id) {
+            return res.status(403).json({ message: "You can only delete your own videos" });
+        }
+
+        if (fs.existsSync(video.videoUrl)) fs.unlinkSync(video.videoUrl);
+        if (video.thumbnailUrl && fs.existsSync(video.thumbnailUrl)) {
+            fs.unlinkSync(video.thumbnailUrl);
+        }
+
+        await Video.findByIdAndDelete(req.params.id);
+
+        res.json({ message: "Video deleted successfully" });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 
 module.exports = router;
