@@ -48,32 +48,42 @@ The frontend intentionally avoids heavy frameworks to demonstrate understanding 
 ---
 ### Project Structure
 
-public.lecture/
-├── .vscode/
+public.lecture
+├─ app
+│  ├─ backend
+│  │  ├─ config
+│  │  │  ├─ auth.config.js
+│  │  │  └─ db.config.js
+│  │  │
+│  │  ├─ controllers
+│  │  │  ├─ auth.controller.js
+│  │  │  ├─ user.controller.js
+│  │  │  └─ video.controller.js
+│  │  │
+│  │  ├─ middlewares
+│  │  │  ├─ authJwt.js
+│  │  │  └─ verifySignUp.js
+│  │  │
+│  │  ├─ models
+│  │  │  ├─ index.js
+│  │  │  ├─ user.model.js
+│  │  │  └─ video.model.js
+│  │  │
+│  │  ├─ routes
+│  │  │  ├─ auth.routes.js
+│  │  │  ├─ user.routes.js
+│  │  │  └─ video.routes.js
+│  │  │
+│  │  └─ uploads
+│  │
+│  └─ frontend
+│     ├─ index.html
+│     ├─ script.js
+│     └─ style.css
 │
-├── app/
-│   ├── backend/
-│   │   ├── config/          # Database and authentication configuration
-│   │   ├── controllers/     # Business logic and request handlers
-│   │   ├── middlewares/     # Authentication and validation middleware
-│   │   ├── models/          # Mongoose schemas and models
-│   │   ├── routes/          # REST API route definitions
-│   │   ├── test/            # Backend tests
-│   │   ├── uploads/         # Uploaded video and media files
-│   │   ├── .env             # Environment variables (excluded from Git)
-│   │   └── server.js        # Express server entry point
-│   │
-│   └── frontend/
-│       ├── assets/          # Images and static assets
-│       ├── css/             # Stylesheets
-│       ├── html/            # HTML pages
-│       └── js/              # Client-side JavaScript
-│
-├── .gitignore
-├── node_modules/
-├── package.json
-├── package-lock.json
-└── README.md
+├─ node_modules
+├─ package-lock.json
+└─ README.md
 
 ## Database Design
 
