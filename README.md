@@ -46,49 +46,35 @@ The platform provides the following core functionality:
 The frontend intentionally avoids heavy frameworks to demonstrate understanding of core JavaScript and client–server interaction.
 
 ---
+### Project Structure
 
-## Project Structure
-
-
-```
 public.lecture/
+│
+├── .vscode/
 │
 ├── app/
 │   ├── backend/
-│   │   ├── config/
-│   │   │   ├── auth.config.js
-│   │   │   └── db.config.js
-│   │   │
-│   │   ├── controllers/
-│   │   │   ├── auth.controller.js
-│   │   │   ├── user.controller.js
-│   │   │   └── video.controller.js
-│   │   │
-│   │   ├── middlewares/
-│   │   │   ├── authJwt.js
-│   │   │   └── verifySignUp.js
-│   │   │
-│   │   ├── models/
-│   │   │   ├── index.js
-│   │   │   ├── user.model.js
-│   │   │   └── video.model.js
-│   │   │
-│   │   ├── routes/
-│   │   │   ├── auth.routes.js
-│   │   │   ├── user.routes.js
-│   │   │   └── video.routes.js
-│   │   │
-│   │   └── uploads/
+│   │   ├── config/          # Database and authentication configuration
+│   │   ├── controllers/     # Request handling logic
+│   │   ├── middlewares/     # Authentication and validation middleware
+│   │   ├── models/          # Mongoose data models
+│   │   ├── routes/          # API route definitions
+│   │   ├── test/            # Backend tests
+│   │   ├── uploads/         # Uploaded media files
+│   │   ├── .env             # Environment variables
+│   │   └── server.js        # Express server entry point
 │   │
 │   └── frontend/
-│       ├── index.html
-│       ├── script.js
-│       └── style.css
+│       ├── assets/          # Images and static assets
+│       ├── css/             # Stylesheets
+│       ├── html/            # HTML pages
+│       └── js/              # Client-side JavaScript
 │
+├── .gitignore
 ├── node_modules/
+├── package.json
 ├── package-lock.json
 └── README.md
-```
 
 ## Database Design
 
