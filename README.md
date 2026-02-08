@@ -49,19 +49,18 @@ The frontend intentionally avoids heavy frameworks to demonstrate understanding 
 ### Project Structure
 
 public.lecture/
-│
 ├── .vscode/
 │
 ├── app/
 │   ├── backend/
 │   │   ├── config/          # Database and authentication configuration
-│   │   ├── controllers/     # Request handling logic
+│   │   ├── controllers/     # Business logic and request handlers
 │   │   ├── middlewares/     # Authentication and validation middleware
-│   │   ├── models/          # Mongoose data models
-│   │   ├── routes/          # API route definitions
+│   │   ├── models/          # Mongoose schemas and models
+│   │   ├── routes/          # REST API route definitions
 │   │   ├── test/            # Backend tests
-│   │   ├── uploads/         # Uploaded media files
-│   │   ├── .env             # Environment variables
+│   │   ├── uploads/         # Uploaded video and media files
+│   │   ├── .env             # Environment variables (excluded from Git)
 │   │   └── server.js        # Express server entry point
 │   │
 │   └── frontend/
