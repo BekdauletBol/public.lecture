@@ -49,7 +49,6 @@ The frontend intentionally avoids heavy frameworks to demonstrate understanding 
 
 ## Project Structure
 
-The project is organized using a modular full-stack architecture with a clear separation of backend and frontend responsibilities.
 
 ```
 public.lecture/
