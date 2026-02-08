@@ -186,25 +186,6 @@ The relationship between collections is implemented using Mongoose references.
 
 ---
 
-## Using Screen
-
-### Authentication Interface
-User registration and login functionality
-
-<img src="frontend/assets/auth.png" width="800">
-
-### Lecture Library
-Browsing, searching, and viewing available lectures
-
-<img src="frontend/assets/library.png" width="800">
-
-### Teacher Studio
-Lecture upload and management interface
-
-<img src="frontend/assets/teacher.png" width="800">
-
----
-
 ## Installation and Setup
 
 ### Requirements
@@ -216,7 +197,7 @@ Lecture upload and management interface
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/public.edu.git
+git clone https://github.com/BekdauletBol/public.lecture.git
 cd public.edu
 ````
 
@@ -230,7 +211,7 @@ npm install
 
 ```env
 PORT=5000
-MONGO_URI=your_mongodb_connection_string
+MONGO_URI="mongodb+srv://bolatovbekdaulet4_db_user:qweasdzxc890@publiclecture.t4maxdv.mongodb.net/?appName=publicLecture"
 JWT_SECRET=your_jwt_secret
 ```
 
