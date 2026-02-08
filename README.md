@@ -12,12 +12,6 @@ The system is designed with a modular backend architecture, secure authenticatio
 
 ---
 
-## Project Topic
-
-Educational video platform for lecture hosting, management, and consumption.
-
----
-
 ## Functional Scope
 
 The platform provides the following core functionality:
@@ -55,28 +49,51 @@ The frontend intentionally avoids heavy frameworks to demonstrate understanding 
 
 ## Project Structure
 
-The backend follows a fully modular structure as required:
+The project is organized using a modular full-stack architecture with a clear separation of backend and frontend responsibilities.
 
 ```
-
-backend/
-├── controllers/
-├── models/
-├── routes/
-├── middleware/
-├── uploads/
-├── config/
-└── server.js
-
-````
-
-Frontend assets are separated into pages, scripts, styles, and static resources.
-
----
+public.lecture/
+│
+├── app/
+│   ├── backend/
+│   │   ├── config/
+│   │   │   ├── auth.config.js
+│   │   │   └── db.config.js
+│   │   │
+│   │   ├── controllers/
+│   │   │   ├── auth.controller.js
+│   │   │   ├── user.controller.js
+│   │   │   └── video.controller.js
+│   │   │
+│   │   ├── middlewares/
+│   │   │   ├── authJwt.js
+│   │   │   └── verifySignUp.js
+│   │   │
+│   │   ├── models/
+│   │   │   ├── index.js
+│   │   │   ├── user.model.js
+│   │   │   └── video.model.js
+│   │   │
+│   │   ├── routes/
+│   │   │   ├── auth.routes.js
+│   │   │   ├── user.routes.js
+│   │   │   └── video.routes.js
+│   │   │
+│   │   └── uploads/
+│   │
+│   └── frontend/
+│       ├── index.html
+│       ├── script.js
+│       └── style.css
+│
+├── node_modules/
+├── package-lock.json
+└── README.md
+```
 
 ## Database Design
 
-The project uses **MongoDB** as the primary data storage with **Mongoose** for schema modeling.
+The project uses **MongoDB** as the primary data storage with **Mongoose** for schema modeling
 
 ### Collections
 
@@ -170,22 +187,22 @@ The relationship between collections is implemented using Mongoose references.
 
 ---
 
-## Screenshots
+## Using Screen
 
 ### Authentication Interface
-User registration and login functionality.
+User registration and login functionality
 
-<img src="frontend/assets/screenshots/auth.png" width="800">
+<img src="frontend/assets/auth.png" width="800">
 
 ### Lecture Library
-Browsing, searching, and viewing available lectures.
+Browsing, searching, and viewing available lectures
 
-<img src="frontend/assets/screenshots/library.png" width="800">
+<img src="frontend/assets/library.png" width="800">
 
 ### Teacher Studio
-Lecture upload and management interface.
+Lecture upload and management interface
 
-<img src="frontend/assets/screenshots/teacher.png" width="800">
+<img src="frontend/assets/teacher.png" width="800">
 
 ---
 
@@ -239,10 +256,6 @@ The project is deployed on a cloud hosting platform.
 * Environment variables are stored securely
 * MongoDB Atlas is used for the production database
 
-Deployment URL:
-**[add deployed project link here]**
-
----
 
 ## Team and Contribution
 
@@ -255,18 +268,3 @@ Team members:
 * Daniyar Kairatov
 
 All team members contributed to backend development, database design, API implementation, and frontend integration, and are prepared to explain the system architecture and implementation decisions during project defense.
-
----
-
-## Defence Readiness
-
-The project fully satisfies the final project requirements:
-
-* Node.js and Express backend
-* MongoDB with multiple collections
-* JWT authentication and bcrypt password hashing
-* Role-based access control
-* Modular code structure
-* API documentation
-* Screenshots of all major features
-* Deployment and environment configuration
