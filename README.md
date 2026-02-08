@@ -242,3 +242,4 @@ Team members:
 * Daniyar Kairatov
 
 All team members contributed to backend development, database design, API implementation, and frontend integration, and are prepared to explain the system architecture and implementation decisions during project defense.
+## link: https://lovely-clafoutis-06a82b.netlify.app/index.html
