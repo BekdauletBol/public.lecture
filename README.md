@@ -1,5 +1,3 @@
-<img width="1440" height="900" alt="Screenshot 2026-02-06 at 12 18 35 PM" src="https://github.com/user-attachments/assets/d010848c-5802-46f6-9d30-535803aef892" /># public.edu — Video Context Platform
-
 # public.edu — Educational Video Platform
 
 ## Project Overview
@@ -9,6 +7,8 @@
 The platform enables users to securely register, authenticate, and interact with educational video content. It implements role-based access control, allowing teachers to upload and manage lectures, while students can browse and watch available content.
 
 The system is designed with a modular backend architecture, secure authentication, proper database modeling, and RESTful API principles, meeting all requirements of the final project specification.
+
+<img width="1440" height="900" alt="Screenshot 2026-02-06 at 12 18 35 PM" src="https://github.com/user-attachments/assets/d010848c-5802-46f6-9d30-535803aef892" /># public.edu — Video Context Platform
 
 ---
 
