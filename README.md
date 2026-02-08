@@ -46,7 +46,9 @@ The platform provides the following core functionality:
 The frontend intentionally avoids heavy frameworks to demonstrate understanding of core JavaScript and client–server interaction.
 
 ---
+
 ### Project Structure
+```
 
 public.lecture
 ├─ app
@@ -54,36 +56,33 @@ public.lecture
 │  │  ├─ config
 │  │  │  ├─ auth.config.js
 │  │  │  └─ db.config.js
-│  │  │
 │  │  ├─ controllers
 │  │  │  ├─ auth.controller.js
 │  │  │  ├─ user.controller.js
 │  │  │  └─ video.controller.js
-│  │  │
 │  │  ├─ middlewares
 │  │  │  ├─ authJwt.js
 │  │  │  └─ verifySignUp.js
-│  │  │
 │  │  ├─ models
 │  │  │  ├─ index.js
 │  │  │  ├─ user.model.js
 │  │  │  └─ video.model.js
-│  │  │
 │  │  ├─ routes
 │  │  │  ├─ auth.routes.js
 │  │  │  ├─ user.routes.js
 │  │  │  └─ video.routes.js
-│  │  │
 │  │  └─ uploads
-│  │
 │  └─ frontend
-│     ├─ index.html
-│     ├─ script.js
-│     └─ style.css
-│
-├─ node_modules
+│     ├─ assets
+│     ├─ css
+│     ├─ html
+│     └─ js
+├─ package.json
 ├─ package-lock.json
 └─ README.md
+```
+
+---
 
 ## Database Design
 
