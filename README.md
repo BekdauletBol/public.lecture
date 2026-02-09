@@ -1,4 +1,4 @@
-# public.edu — Educational Video Platform
+# public.edu — Educational Video Platform. 
 
 ## Project Overview
 
