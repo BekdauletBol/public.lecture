@@ -239,6 +239,7 @@ Team members:
 
 * Bekdaulet Bolatov
 * Sultan Muratbek
+# friendly-toffee-745a51.netlify.app
 * Daniyar Kairatov
 
 All team members contributed to backend development, database design, API implementation, and frontend integration, and are prepared to explain the system architecture and implementation decisions during project defense.
