@@ -12,7 +12,7 @@ The system is designed with a modular backend architecture, secure authenticatio
 
 ---
 
-## Functional Scope
+## Functional Scope. 
 
 The platform provides the following core functionality:
 
