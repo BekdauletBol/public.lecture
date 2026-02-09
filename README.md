@@ -90,7 +90,7 @@ The project uses **MongoDB** as the primary data storage with **Mongoose** for s
 
 ### Collections
 
-### 1. User
+### 1. User 
 
 Stores authentication and profile-related information.
 
