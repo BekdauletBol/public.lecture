@@ -118,7 +118,7 @@ The relationship between collections is implemented using Mongoose references.
 
 ---
 
-## API Documentation
+## API Documentation 
 
 ### Authentication (Public Endpoints)
 
